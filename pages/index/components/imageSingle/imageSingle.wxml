@@ -1,0 +1,19 @@
+<!-- 单图组 -->
+<view class="images-single">
+<view style='background:{{item.style.background}};padding:0px {{item.style.paddingLeft}}px {{item.style.paddingTop}}px {{item.style.paddingLeft}}px;'>
+  <block wx:for="{{item.data}}" wx:for-item="img_single" wx:for-index="img_single_key" wx:key="this">
+    <view wx:if="{{img_single.linkUrl=='#'}}" class="img-single">
+      <view bindtap="clickme" class='img-single' style='padding-top:{{item.style.paddingTop}}px;'>
+        <image class='img-single-images' style='border-radius:{{item.style.borderRadius}}rpx;width:{{710-item.style.paddingLeft*4}}rpx;' src='{{img_single.imgUrl}}' mode='widthFix'/>
+      </view>
+    </view>
+    <view wx:else>
+      <view class='img-single' style='padding-top:{{item.style.paddingTop}}px;'>
+        <navigator open-type="navigateTo" url="{{img_single.linkUrl}}">
+          <image class='img-single-images' style='border-radius:{{item.style.borderRadius}}rpx;width:{{710-item.style.paddingLeft*4}}rpx;' src='{{img_single.imgUrl}}' mode='widthFix'/>
+        </navigator>
+      </view>
+    </view>
+  </block>
+</view>
+</view>

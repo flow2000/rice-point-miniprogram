@@ -1,0 +1,12 @@
+.images-single{
+	padding: 0rpx 20rpx;
+	background: #fff; 
+}
+/* 单图组 */
+.img-single{
+  /* text-align: center; */
+  display: inline-block;
+}
+.img-single-images{
+  vertical-align: bottom;
+}

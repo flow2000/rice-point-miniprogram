@@ -1,0 +1,55 @@
+<view class='container'>
+  <view class="head {{scrollDown?'hidden':''}}">
+    <view class="shop ">
+      <image class="logo" mode="aspectFit" src="{{PIC_API+currentCanteen.canteenUrl}}" />
+      <view class="name">{{currentCanteen.canteenName}}</view>
+      <view class="address">门店地址：{{currentCanteen.location}}</view>
+      <view class="line"></view>
+    </view>
+  </view>
+  <view class="content-container">
+    <scroll-view class="classify-container" scroll-y="true">
+      <view wx:for="{{category}}" wx:for-item="classify" wx:key="id" data-id="{{'id'+classify.category_id}}" id="{{'id'+classify.category_id}}" class="classify {{classifySeleted==classify.category_id?'active':''}}" bindtap="tapClassify">
+        <view class="name">{{classify.name}}</view>
+      </view>
+    </scroll-view>
+    <scroll-view class="goods-container" scroll-y="true" scroll-into-view="{{classifyViewed}}" bindscroll="onGoodsScroll">
+      <view class='aaa' wx:for="{{category}}" wx:for-item="classify" id="{{'id'+classify.category_id}}" wx:key="id" data-id="{{'id'+classify.category_id}}">
+        <view class="title">{{classify.name}}</view>
+        <view class="goods" wx:for="{{goods[classify.category_id]}}" wx:for-item="dish" wx:key="this">
+          <navigator url="../goods/index?goods_id={{dish.dishId}}" hover-class='navigator-hover'>
+            <image mode="aspectFill" wx:if="{{dish.url!=undefined}}" class="pic" src="{{PIC_API+dish.url}}" lazy-load="{{true}}"/>
+          </navigator>
+          <view class="name">{{dish.dishesName}}</view>
+          <view class="sold">已售：{{dish.onsale}}份</view>
+          <view class="price">￥{{dish.price}}</view>
+          <view class="cart-but">
+            <view class="but" bindtap="add" data-index="{{index}}" data-dish_type_id="{{classify.category_id}}" data-dish_id="{{dish.dishId}}">
+              <text>+</text>
+            </view>
+            <view class="number" wx:if="{{dish.selectedNumber!=0}}">
+              <text>{{dish.selectedNumber}}</text>
+            </view>
+            <view class="but" wx:if="{{dish.selectedNumber!=0}}" bindtap="sub" data-index="{{index}}" data-dish_type_id="{{classify.category_id}}" data-dish_id="{{dish.dishId}}">
+              <text>-</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="line"></view>
+  </view>
+  <view class="cart" bindtap="{{(order_total_num>0)?'gotoCart':''}}">
+    <view class="data">
+      <view class="icon iconfont icongouwuche">
+        <view class="count">{{order_total_num?order_total_num:''}}</view>
+      </view>
+      <view class="total">￥{{order_total_price}}</view>
+    </view>
+    <view class="cart-tab-item-btn h4 {{(order_total_num>0)?'btn-bg1':'btn-bg2'}}">
+      {{(order_total_num>0)?'去结算':'请选单'}}
+    </view>
+  </view>
+
+
+</view>

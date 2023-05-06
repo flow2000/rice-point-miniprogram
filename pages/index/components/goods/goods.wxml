@@ -1,0 +1,79 @@
+<!-- 商品组 -->
+<view wx:if="{{item.data.length}}">
+  <view wx:if="{{item.style.display=='list'}}">
+    <view wx:if="{{item.style.column==1}}">
+      <view class="goods-item-list1 {{idx>0?'m-top10':''}}" wx:for="{{item.data}}" wx:for-item="list" wx:for-index="idx" wx:key="this" style="background:{{item.style.background}};">
+        <navigator hover-class="none" style="display: inline-block;" url="../goods/index?goods_id={{list.goods_id}}">
+          <image mode="aspectFill" lazy-load="true" src="{{list.image}}"></image>
+          <view class="goods-item-list1-name">
+            {{item.style.show.goodsName=='true'?list.goods_name:''}}
+          </view>
+          <view class="goods-item-list1-selling-point col-m f-28">
+            {{item.style.show.sellingPoint=='true'?list.selling_point:''}}
+          </view>
+          <view class="goods-item-list1-goods-sales f-26">
+            {{item.style.show.goodsSales=='true'?list.goods_sales:''}}
+          </view>
+          <view class="goods-item-list1-price f-26">
+            <text class="price col-m">{{item.style.show.goodsPrice=='true'?'￥'+list.goods_price:''}}</text>
+            <text class="del f-22">{{item.style.show.linePrice=='true'&& list.line_price>0?'￥'+list.line_price:''}}</text>
+          </view>
+        </navigator>
+      </view>
+    </view>
+    <view wx:if="{{item.style.column==2}}">
+      <view class="category-list">
+        <navigator class="list b-f" hover-class="none" wx:for="{{item.data}}" wx:for-item="list" wx:for-index="idx" wx:key="this" style="background:{{item.style.background}};" url="../goods/index?goods_id={{list.goods_id}}">
+          <view class="left">
+            <view class="img">
+              <image class="goodsImg" mode="scaleToFill" lazy-load="true" src="{{list.image}}"></image>
+            </view>
+          </view>
+          <view class="right">
+            <view class="cont">
+              <text class="f-30 title twolist-hidden m-top10">{{list.goods_name}}</text>
+              <text class="price f-34 col-m f-w">￥{{list.goods_price}}</text>
+              <text class="del f-22">{{list.line_price>0?'￥'+list.line_price:''}}</text>
+              <text class="sold">{{list.goods_sales}}</text>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+    <view wx:if="{{item.style.column==3}}">
+      <view class="category-list3">
+        <navigator class="list b-f" hover-class="none" wx:for="{{item.data}}" wx:for-item="list" wx:for-index="idx" wx:key="this" style="background:{{item.style.background}};" url="../goods/index?goods_id={{list.goods_id}}">
+          <view class="left">
+            <view class="img">
+              <image class="goodsImg" mode="scaleToFill" lazy-load="true" src="{{list.image}}"></image>
+            </view>
+          </view>
+          <view class="right">
+            <view class="cont">
+              <text class="f-28 title twolist-hidden m-top10">{{list.goods_name}}</text>
+              <text class="price f-26 col-m f-w">￥{{list.goods_price}}</text>
+              <text class="del f-22">{{list.line_price>0?'￥'+list.line_price:''}}</text>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <view wx:else>
+    <view class="index_sale" style="background:{{item.style.background}}">
+      <scroll-view scroll-x="true">
+        <navigator hover-class="none" style="display: inline-block;" wx:for="{{item.data}}" wx:for-item="list" wx:key="this" url="../goods/index?goods_id={{list.goods_id}}">
+          <view class="page-column">
+            <view class="sale_img">
+              <image mode="aspectFill" lazy-load="true" src="{{list.image}}"></image>
+            </view>
+            <view class="content onelist-hidden">
+              <text>{{list.goods_name}}</text>
+            </view>
+            <text class="price col-m f-30">￥{{list.goods_price}}</text>
+          </view>
+        </navigator>
+      </scroll-view>
+    </view>
+  </view>
+</view>

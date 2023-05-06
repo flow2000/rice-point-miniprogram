@@ -1,0 +1,43 @@
+/* 线下门店 */
+.shop{
+	padding: 20rpx;
+	background: #fff;
+	height: 160rpx;
+	border-bottom: 1rpx solid #f2f2f2;
+}
+.shop image{
+	width: 160rpx;
+	height: 160rpx;
+	border-radius: 50%;
+	float: left;
+}
+.shop-right{
+	height: 160rpx;
+	width: 530rpx;
+	float: right;
+}
+.shop-right-item-title{
+	line-height: 70rpx;
+	vertical-align: middle;
+	color: #ff495e;
+	font-size: 30rpx;
+	white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.shop-right-item-msg{
+	line-height: 40rpx;
+	vertical-align: middle;
+	color: #999;
+	font-size: 25rpx;
+	white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.shop-right-item-tel{
+	float: right;
+	margin-top: -100rpx;
+	border-left: 1rpx solid #f2f2f2;
+	padding: 20rpx 0 20rpx 20rpx;
+	font-size: 40rpx;
+}

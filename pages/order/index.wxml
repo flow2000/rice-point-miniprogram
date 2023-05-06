@@ -1,0 +1,122 @@
+<view wx:if="{{isLogin}}" class="container m-b5">
+  <view class="goods-detail-box">
+    <view class="header f-28 col-3">
+      <view catchtap="bindHeaderTap" class="{{dataType==='-1'?'active':''}}" data-type="-1">全部订单</view>
+      <view bindtap="bindHeaderTap" class="{{dataType==='0'?'active':''}}" data-type="0">待处理</view>
+      <view bindtap="bindHeaderTap" class="{{dataType==='1'?'active':''}}" data-type="1">已完成</view>
+      <view bindtap="bindHeaderTap" class="{{dataType==='3'?'active':''}}" data-type="3">已取消</view>
+    </view>
+    <scroll-view scroll-y="{{true}}">
+      <view class="wrapper">
+        <view wx:if="{{orderList.length}}">
+          <view class="m-top20 " wx:for="{{orderList}}" wx:for-item="order" wx:key="this">
+            <view class="order-box b-f">
+              <view class="order-header dis-flex">
+                <view class="flex-box t-l">
+                  <text class="title">{{order.canteenName}}</text>
+                </view>
+                <view wx:if="{{orderStatusMap[order.status]!='已取消'}}" class="flex-box t-r">
+                  <text class="title">取餐号：</text><text class="cont">{{order.mealNumber}}</text>
+                </view>
+                <view class="flex-box t-r">
+                  <text class="cont">{{orderStatusMap[order.status]}}</text>
+                </view>
+              </view>
+            </view>
+            <view class="order-box b-f">
+              <view class="order-cont dis-flex">
+                <view class="order-num">
+                  <text>订单号：{{order.orderCode}}</text>
+                </view>
+                <view class="order-time">
+                  <text>{{order.createTime}}</text>
+                </view>
+              </view>
+            </view>
+            <view class="order-box order-img_list">
+              <view class="order-shop">
+                <view bindtap="detail" class="order-list-box dis-flex" data-id="{{order.orderId}}">
+                  <view class="left">
+                    <view class="dis-flex">
+                      <view class="order-shop-left" wx:for="{{order.dishOrders}}" wx:for-item="dish" wx:for-index="index" wx:key="dishOrders">
+                        <image mode="aspectFill" src="{{PIC_API+dish.url}}"></image>
+                      </view>
+                    </view>
+                  </view>
+                  <view class="right p-r">
+                    <text class="goods-number">共{{order.dishNumber}}份</text>
+                    <text class="iconfont icongengduo user-orderJtou"></text>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="order-box b-f">
+              <view class="order-btn dis-flex">
+                <view class="order-left">
+                  <view class="text">
+                    <text>合计：</text>
+                    <text class="col-m">￥{{order.orderPrice}}</text>
+                  </view>
+                </view>
+                <view class="order-right">
+                  <view class="dis-flex">
+                    <view class="flex-box" wx:if="{{order.status==0}}">
+                      <view bindtap="cancelOrder" class="btn-default" data-id="{{order.orderId}}">取消</view>
+                    </view>
+                    <view class="flex-box" wx:if="{{order.status==0}}">
+                      <view bindtap="receipt" class="btn-main" data-id="{{order.orderId}}">确认完成</view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view wx:else>
+          <view class="yoshop-notcont">
+            <text class="iconfont"></text>
+            <text class="cont">亲，您还没有此类订单信息哦！</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<view wx:else>
+  <view class="yoshop-notcont">
+    <text class="iconfont iconjinggao"></text>
+    <text class="cont">亲，您还没有登录哦</text>
+    <view catchtap="onLogin" class="flow-btn-min">点此登录</view>
+  </view>
+</view>
+<!-- 技术支持 -->
+<view class="jishu m-top20">
+  <text class="ico iconfont iconkaibin"></text>
+  <view class="text">{{copyright}}</view>
+</view>
+<!--屏幕背景变暗的背景  -->
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+<!--弹出框  -->
+<view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+  <view class="commodity-navbar-header dis-flex">
+    <text class="f-30">请选择支付方式</text>
+    <view bindtap="hideModal" class="dis-flex flex-y-center">
+      <text style="color:#999;font-size:50rpx;">×</text>
+    </view>
+  </view>
+  <!--选项  -->
+  <view class="commodity_attr_box_body">
+    <view bindtap="payOrder" data-pay_mode="0" class="list">
+      <view>
+        <text class="ico iconfont iconweixinzhifu col-green"></text>
+      </view>
+      <view>微信支付</view>
+    </view>
+    <view bindtap="payOrder" data-pay_mode="1" class="list">
+      <view>
+        <text class="ico iconfont iconqiandai1 col-h"></text>
+      </view>
+      <view>余额支付</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,25 @@
+<view class="container">
+  <view class="title">
+    <view class="list">
+      食堂列表
+      <view class="ico"></view>
+    </view>
+  </view>
+  <view wx:if="{{canteenList.length}}" class="shop">
+    <view class="list" wx:for="{{canteenList}}" wx:key="this" bindtap="{{item.status==0?'shop':'shopStop'}}" data-index="{{index}}">
+      <image mode="aspectFill" src="{{PIC_API+item.canteenUrl}}"></image>
+      <view class="ico">
+        <text>{{item.canteenName}}</text>
+        <view wx:if="{{item.status==1}}" class="status color2">歇业</view>
+        <view wx:if="{{item.status==0}}"class="status color1">营业</view>
+      </view>
+      <view class="ico address">{{item.location}}</view>
+    </view>
+  </view>
+  <view wx:else class="">
+    <view class="yoshop-notcont">
+      <text class="iconfont"></text>
+      <text class="cont">亲，暂无门店可选哦</text>
+    </view>
+  </view>
+</view>

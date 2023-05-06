@@ -1,0 +1,11 @@
+/* 在线客服 */
+.service-assembly{
+	position:fixed;
+	width: 80rpx;
+	height: 80rpx;
+	z-index: 999;
+}
+.service-assembly image{
+	width: 80rpx;
+	height: 80rpx;
+}

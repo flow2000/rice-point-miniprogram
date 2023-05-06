@@ -1,0 +1,3 @@
+<!-- 辅助空白 -->
+<view style='background:{{item.style.background}};height:{{item.style.height}}px'>
+</view>

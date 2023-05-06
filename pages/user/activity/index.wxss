@@ -1,0 +1,14 @@
+.menus-list .menus-item {
+  position: relative;
+  padding: 28rpx 28rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.menus-list .menus-item .menus-item__name {
+  color: #444;
+  height: 30rpx;
+}
+.menus-list .menus-item .menus-item__ico{
+  color: #FF495E;
+  margin-right: 20rpx;
+}

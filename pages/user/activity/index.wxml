@@ -1,0 +1,16 @@
+<view wx:if="{{list.length}}" class="menus-list m-top20">
+  <view class=" " wx:for="{{list}}" wx:key="this">
+    <view class="menus-item dis-flex b-f">
+      <view class="menus-item__left flex-box dis-flex ">
+        <text class="menus-item__ico iconfont iconyouhuihuodong f-34"></text>
+        <text class="menus-item__name f-30"> {{item.activity_type.text}}活动：{{item.activity_type.value==10?'消费满'+item.min_price+'元，':'新用户首单，'}}立减{{item.reduce_price}}元！</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:else>
+  <view class="yoshop-notcont">
+    <text class="iconfont"></text>
+    <text class="cont">亲，暂无优惠活动哦！</text>
+  </view>
+</view>

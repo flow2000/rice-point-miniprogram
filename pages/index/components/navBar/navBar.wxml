@@ -1,0 +1,24 @@
+<!-- 导航组 -->
+<view>
+  <block wx:for="{{item.data}}" wx:for-item="nav_bar" wx:for-index="nav_bar_key" wx:key="this">
+    <block wx:if="{{nav_bar.linkUrl==1 || nav_bar.linkUrl==2 ||nav_bar.linkUrl==3 || nav_bar.linkUrl==9}}">
+			<view bindtap="food" data-id="{{nav_bar.linkUrl}}" class='nav_bar' style="background:{{item.style.background}};{{item.style.rowsNum==3?'width:33.33%':''}}{{item.style.rowsNum==4?'width:25%':''}}{{item.style.rowsNum==5?'width:20%':''}}">
+          <view class='ico-img'>
+            <image src='{{nav_bar.imgUrl}}' />
+          </view>
+          <view class='ico-text' style='color:{{nav_bar.color}};'>{{nav_bar.text}}</view>
+        </view>
+    </block>
+    <block wx:else>
+      <navigator open-type="navigateTo" url="{{nav_bar.linkUrl}}">
+        <view class='nav_bar' style="background:{{item.style.background}};{{item.style.rowsNum==3?'width:33.33%':''}}{{item.style.rowsNum==4?'width:25%':''}}{{item.style.rowsNum==5?'width:20%':''}}">
+          <view class='ico-img'>
+            <image src='{{nav_bar.imgUrl}}' />
+          </view>
+          <view class='ico-text' style='color:{{nav_bar.color}};'>{{nav_bar.text}}</view>
+        </view>
+      </navigator>
+    </block>
+  </block>
+</view>
+<view style='clear:both;'></view>

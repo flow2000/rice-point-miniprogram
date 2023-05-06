@@ -1,0 +1,4 @@
+<!-- 辅助线 -->
+<view style='background:{{item.style.background}};padding:{{item.style.paddingTop}}px 0px;'>
+  <view style='border-top:{{item.style.lineHeight}}px {{item.style.lineStyle}} {{item.style.lineColor}}'></view>
+</view>

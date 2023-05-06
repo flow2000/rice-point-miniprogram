@@ -1,0 +1,80 @@
+.checkout_list {
+  padding: 10px 15px 2px 15px;
+  background: #fff;
+  border-bottom: 1rpx solid #eee;
+}
+
+.checkout_list .flow-shopList {
+  padding: 5rpx 0 10rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.checkout_list .flow-shopList:last-child {
+  border-bottom: 0;
+}
+
+.flow-header-left {
+  padding: 0rpx 20rpx;
+}
+.user-address{
+	padding: 0rpx 20rpx;
+	height: 80rpx;
+}
+.user-address-detail{
+	margin-left: 20rpx;
+	width: 85%;
+	height: 80rpx;
+	float: left;
+}
+/* 滑动选择就餐人数*/
+.section_gap{
+	background: #fff;
+	padding: 20rpx;
+	border-bottom: 1rpx solid #EEE;
+	border-top: 1rpx solid #EEE;
+}
+.section_gap .section_title{
+	color: #444;
+	text-align: center;
+}
+
+.flavor{
+	background: #fff;
+	padding-bottom: 20rpx;
+}
+
+.flavor .flavor-ico{
+	height: 50rpx;
+	line-height: 50rpx;
+	vertical-align: middle;
+	text-align: center;
+	padding: 0 10rpx;
+	border-radius: 10rpx;
+	float: left;
+	margin-top: 20rpx;
+	margin-left: 20rpx;
+	font-size: 25rpx;
+	color: #fff;
+}
+
+.flavor .check1{
+	background: #999;
+}
+.flavor .check2{
+	background: #1196DB;
+}
+.message {
+	background: #fff;
+	padding: 20rpx;
+}
+.message input{
+	color: #999;
+}
+.flow-submit {
+  background-color: #ff495e;
+  color: #fff;
+  text-align: center;
+  line-height: 46px;
+  display: block;
+	border-radius: 0rpx;
+}

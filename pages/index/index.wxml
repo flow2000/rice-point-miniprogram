@@ -1,0 +1,37 @@
+<import src="../../wxParse/wxParse.wxml"></import>
+<view class="container">
+  <scroll-view bindscroll="scroll" scroll-top="0" scroll-y="true" style="position:absolute; top:0; left:0; right:0; bottom:0;">
+    <view class="canteen-detail" bindtap="goCanteen">
+      <text class="iconfont iconshanghu"> </text> {{currentCanteen.canteenName}}
+      <text class="iconfont icongengduo gengduo"></text>
+    </view>
+    <!-- banner轮播 -->
+    <block>
+      <include wx:if="{{carouselMapList.length!=0}}" src="components/banner/banner.wxml" />
+    </block>
+    <view class="commodity_attr_box">
+    <!--点餐选项  -->
+    <view class="order-navbar-footer dis-flex m-top20">
+      <view class="flex-box">
+        <view class="commodity-ico-box">
+          <form bindsubmit="food" report-submit="true">
+            <button formType="submit" class="btn-normal">
+              <block>
+                <text class="commodity-navbar__icon iconfont icontangshi1"></text>
+                <text class="commodity-navbar__name">点餐</text>
+              </block>
+            </button>
+          </form>
+          <form bindsubmit="ticket" report-submit="true">
+            <button formType="submit" class="btn-normal" style="padding-top: 30rpx;">
+              <text class="commodity-navbar__icon iconfont icondengji"></text>
+              <text class="commodity-navbar__name">投票</text>
+            </button>
+          </form>
+        </view>
+      </view>
+    </view>
+  </view>
+  </scroll-view>
+  
+</view>

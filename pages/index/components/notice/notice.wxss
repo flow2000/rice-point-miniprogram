@@ -1,0 +1,18 @@
+
+/* 公告组 */
+.notice{
+  height: 60rpx;
+  line-height: 60rpx;
+  vertical-align: middle;
+}
+.notice image{
+  width: 40rpx;
+  height: 40rpx;
+  float: left;
+  margin-top: 10rpx;
+  margin-right: 20rpx;
+}
+.notice text{
+	color: #444;
+  font-size: 28rpx;
+}

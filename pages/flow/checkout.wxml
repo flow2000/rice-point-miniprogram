@@ -1,0 +1,90 @@
+<view class="container p-bottom">
+
+ <!-- 商品列表 -->
+ <view class="m-top20">
+   <view class="checkout_list " wx:for="{{order}}" wx:key="this">
+     <navigator url="../goods/index?goods_id={{item.dishId}}">
+       <view class="dis-flex flow-shopList" data-index="{{index}}">
+         <view class="flow-list-left">
+           <image mode="scaleToFill" src="{{item.url}}"></image>
+         </view>
+         <view class="flow-list-right">
+           <text class="f-30 col-3 twolist-hidden">{{item.dishName}}</text>
+           <!-- <text class="f-26 col-7">{{item.goods_attr}}</text> -->
+           <view class="flow-list-cont">
+             <text class="flow-cont">￥{{item.price}}</text>
+             <text class="small">×{{item.number}}</text>
+           </view>
+         </view>
+       </view>
+     </navigator>
+   </view>
+   <view class="flow-num-box b-f padding-box">
+     <text>共{{order_total_num}}件商品，合计：</text>
+
+     <text class="flow-money col-m">￥{{order_total_price}}</text>
+   </view>
+ </view>
+
+ <!-- 商品金额 -->
+ <view class="flow-all-money b-f padding-box m-top20">
+   <view class="dis-flex flow-all-list">
+     <text class="flex-five">商品总金额:</text>
+     <view class="flex-five t-r">
+       <text class="col-m">￥{{order_total_price}}</text>
+     </view>
+   </view>
+   <view class="dis-flex flow-all-list">
+     <text class="flex-five">优惠金额:</text>
+     <view class="flex-five t-r">
+       <view>
+         <text class="col-m">-￥{{activity_price}}</text>
+       </view>
+     </view>
+   </view>
+ </view>
+ <form bindsubmit="submitOrder">
+   <!-- 口味选择 -->
+   <view class="menus-list m-top20">
+     <view class="menus-item dis-flex b-f">
+       <view class="menus-item__left flex-box dis-flex flex-y-center">
+         <text class="menus-item__name f-30">口味选择</text>
+       </view>
+     </view>
+     <view class="flavor clearfix" wx:if="{{flavor_list.length>0}}">
+       <text class="flavor-ico clearfix {{item.checked?'check2':'check1'}}" bindtap="flavor" wx:for="{{flavor_list}}" wx:key="this" data-index="{{index}}">{{item.name}}</text>
+     </view>
+     <view class="message">
+       <input name="message" placeholder="选填：买家留言（50字以内）" maxlength="50"></input>
+     </view>
+   </view>
+   <!-- 支付方式 -->
+   <view class="menus-list m-top20">
+     <view class="menus-item dis-flex b-f">
+       <view class="menus-item__left flex-box dis-flex flex-y-center">
+         <text class="menus-item__name f-30">支付方式</text>
+       </view>
+     </view>
+     <view class="menus-item dis-flex b-f" bindtap="setPay" data-pay_mode="0">
+       <view class="menus-item__left flex-box dis-flex flex-y-center">
+         <text class="ico iconfont iconweixinzhifu col-green"></text>
+         <text class="menus-item__name f-30">现场支付</text>
+       </view>
+       <view class="menus-item__right flex-box dis-flex flex-x-end flex-y-center">
+         <text class="red iconfont {{pay_mode==0?'iconduihao':''}} f-30"></text>
+       </view>
+     </view>
+   </view>
+   <!-- 提交订单 -->
+   <view class="flow-fixed-footer b-f m-top10">
+     <view class="dis-flex chackout-box">
+       <view class=" chackout-left pl-12 ">实付款：
+         <text class="col-m">￥{{order_pay_price}}</text>
+       </view>
+       <view class="chackout-right">
+         <button class="flow-submit" form-type="submit">提交订单</button>
+       </view>
+     </view>
+   </view>
+ </form>
+</view>

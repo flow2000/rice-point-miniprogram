@@ -1,0 +1,30 @@
+/* 头条快报 */
+
+.special {
+  padding: 20rpx;
+  background: #fff;
+}
+
+.special image {
+  width: 140rpx;
+  height: 38rpx;
+  float: left;
+}
+
+.special-swiper {
+  margin-left: 160rpx;
+  width: 72%;
+}
+.special-swiper-item{
+color: #555;
+  font-size: 28rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.special-ico {
+  float: right;
+  color: #ccc;
+  font-size: 38rpx;
+}

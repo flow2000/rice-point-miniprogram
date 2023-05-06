@@ -1,0 +1,10 @@
+<!-- banner轮播 -->
+<view class="diy-banner">
+  <swiper autoplay="{{true}}" class="banner-box swiper-box" duration="{{800}}" circular="{{true}}" indicator-dots="{{true}}" interval="{{3000}}" indicator-color="#ffffff" indicator-active-color="#000" data-item-key="{{item_key}}">
+    <swiper-item wx:for="{{carouselMapList}}" wx:for-item="banner" wx:key="this">
+      <image class="slide-image" src="{{PIC_API+banner.img}}" data-id="{{index}}" data-item-key="{{item_key}}"></image>
+    </swiper-item>
+  </swiper>
+  <!-- 顶部置灰 -->
+  <!-- <view class="linear"></view>  -->
+</view>

@@ -1,0 +1,90 @@
+page {
+  color: #444;
+}
+
+.title {
+  padding: 20rpx;
+}
+
+.title .list {
+  text-align: center;
+  width: 150rpx;
+  line-height: 50rpx;
+  vertical-align: middle;
+}
+
+.title .list .ico {
+  width: 60%;
+  height: 5rpx;
+  margin: 0 auto;
+  background: #1196db;
+  border-radius: 20rpx;
+}
+
+.shop {
+  padding: 20rpx;
+  width: 90%;
+}
+
+.shop .list {
+  padding: 20rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  height: 100rpx;
+  margin-bottom: 20rpx;
+}
+
+.shop .list image {
+  width: 100rpx;
+  height: 100rpx;
+  float: left;
+  margin-right: 20rpx;
+}
+
+.shop .list .ico {
+  height: 50rpx;
+  line-height: 50rpx;
+  vertical-align: middle;
+}
+
+.shop .list .ico .status {
+  margin: 10rpx 0 0 20rpx;
+  font-size: 23rpx;
+  width: 100rpx;
+  line-height: 35rpx;
+  vertical-align: middle;
+  border-radius: 30rpx;
+  text-align: center;
+  float: left;
+}
+
+.shop .list .ico .color1 {
+  background: #04be01;
+  color: #fff;
+}
+
+.shop .list .ico .color2 {
+  background: #f2f2f2;
+  color: #999;
+}
+
+.shop .list .ico text {
+  float: left;
+  display: block;
+}
+
+.shop .list .ico .shop-wz {
+  color: #999;
+  font-size: 25rpx;
+  float: right;
+  display: block;
+}
+
+.shop .list .ico .shop-wz .range {
+  margin-right: 10rpx;
+}
+
+.shop .list .address {
+  color: #999;
+  font-size: 23rpx;
+}

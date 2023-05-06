@@ -1,0 +1,47 @@
+<import src="../../wxParse/wxParse.wxml"></import>
+<scroll-view bindscroll="scroll" scroll-top="{{scrollTop}}" scroll-y="true" style="position:absolute; top:0; left:0; right:0; bottom:0;">
+  <view class="container" wx:if="{{dish.dishId}}">
+    <view>
+      <swiper autoplay="{{true}}" class="banner-box swiper-box" interval="{{800}}" circular="{{true}}">
+        <swiper-item wx:key="this">
+          <image mode="aspectFit" class="slide-image" src="{{PIC_API+dish.url}}"></image>
+        </swiper-item>
+      </swiper>
+      <view class="number-banner"> 
+        <text>1</text>
+        <text>/1</text>
+      </view>
+    </view>
+    <view class="cont-box b-f">
+      <view class="goods-title ">
+        <text class="title f-32 twolist-hidden">{{dish.dishesName}}</text>
+      </view>
+      <view class="money-box">
+        <text class="num">￥{{dish.price}}</text>
+        <!-- <text class="del" wx:if="{{12>0}}">￥{{12}}</text> -->
+      </view>
+      <view class="goods-sales-box f-28 dis-flex">
+        <text class="flex-box num">销量：{{dish.onsale}}</text>
+      </view>
+    </view>
+
+    <!-- 商品描述 -->
+    <view class="p-bottom">
+      <view class="top-nav m-top20 b-f b-b">
+        <view class="top-nav-bar">
+          <view id="top-nav-bar-true">
+            <span>菜品详情</span>
+          </view>
+        </view>
+      </view>
+      <view class="order">
+        <view>
+          <view class="yoshop-notcont">
+            <text class="iconfont"></text>
+            <text class="cont">亲,此处暂无详情数据</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

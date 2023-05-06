@@ -1,0 +1,4 @@
+<!-- 公告组 -->
+<view class="notice bhh" style="background:{{item.style.background}};color:{{item.style.textColor}};padding:{{item.style.paddingTop}}rpx 10px;">
+  <image src='{{item.params.icon}}' /><text>{{item.params.text}}</text>
+</view>

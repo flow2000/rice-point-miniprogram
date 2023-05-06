@@ -1,0 +1,5 @@
+<!-- 富文本 -->
+<import src="../../../../wxParse/wxParse.wxml"></import>
+<view  style="background:{{item.style.background}};padding:{{item.style.paddingTop}}rpx {{item.style.paddingLeft}}rpx;">
+<template is="wxParse" style="background:{{item.style.background}};" data="{{wxParseData:content.nodes}}"></template>
+</view>

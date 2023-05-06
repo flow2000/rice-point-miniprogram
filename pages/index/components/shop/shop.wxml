@@ -1,0 +1,12 @@
+<!-- 线下门店 -->
+<view class="shop" wx:for-item="list" wx:for-index="idx" wx:for="{{item.data}}" wx:key="this" style="{{idx?'border-bottom: 1rpx solid #f2f2f2;':''}}">
+  <image src="{{list.logo_image}}"></image>
+  <view class="shop-right">
+    <view class="shop-right-item-title">{{list.shop_name}}</view>
+    <view class="shop-right-item-msg">门店地址：{{list.address}}</view>
+    <view class="shop-right-item-msg">联系电话：{{list.phone}}</view>
+		<button class="btn-normal tel-but shop-right-item-tel" data-phone="{{list.phone}}" bindtap="phone">
+	 	<text class="iconfont iconbodadianhua col-9"></text>
+	</button>
+  </view>
+</view>

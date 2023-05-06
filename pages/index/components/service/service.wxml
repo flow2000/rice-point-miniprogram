@@ -1,0 +1,9 @@
+<!-- 在线客服 -->
+<view class="service-assembly" style="right:{{item.style.right}}%;bottom:{{item.style.bottom}}%;opacity:{{item.style.opacity/100}};">
+	<button class="btn-normal" open-type="contact" wx:if="{{item.params.type=='chat'}}">
+	 	<image src="{{item.params.image}}"></image>
+	</button>
+	<button class="btn-normal" data-phone="{{item.params.phone_num}}" bindtap="phone" wx:if="{{item.params.type=='phone'}}">
+	 	<image src="{{item.params.image}}"></image>
+	</button>
+</view>

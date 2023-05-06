@@ -1,0 +1,12 @@
+<!-- 头条快报 -->
+<view class="special">
+  <image style="{{item.style.display==2?'margin-top:19rpx;':''}}" src="{{item.style.image}}"></image>
+  <text style="{{item.style.display==2?'margin-top:25rpx;':''}}" class="iconfont icongengduo special-ico"></text>
+  <swiper class="special-swiper"  vertical="true" autoplay="true" display-multiple-items="{{item.style.display}}" circular="true" interval="3000" style="height:{{item.style.display*38}}rpx;">
+    <view wx:for-item="list" wx:for-index="idx" wx:for="{{item.data}}" wx:key="this">
+      <navigator open-type="navigateTo" url="/pages/article/detail?article_id={{list.article_id}}">
+        <swiper-item class="special-swiper-item">{{list.article_title}}</swiper-item>
+      </navigator>
+    </view>
+  </swiper>
+</view>
